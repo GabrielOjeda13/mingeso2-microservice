@@ -1,13 +1,11 @@
 package com.mingeso.msorders.services;
 
-import com.mingeso.msorders.clients.ProductsFeignClient;
-import com.mingeso.msorders.entities.Order;
-import com.mingeso.msorders.entities.OrderProduct;
-import com.mingeso.msorders.repositories.OrderProductRepository;
+
+import com.mingeso.msorders.entities.OrderEntity;
+import com.mingeso.msorders.entities.OrderReparacionEntity;
+import com.mingeso.msorders.repositories.OrderReparacionRepository;
 import com.mingeso.msorders.repositories.OrderRepository;
 import com.mingeso.msorders.requests.CreateOrderRequest;
-import com.mingeso.msorders.requests.DecreaseStockRequest;
-import com.mingeso.msorders.requests.RequestProduct;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,18 +16,19 @@ import java.util.ArrayList;
 public class OrderService {
 
     OrderRepository orderRepository;
-    OrderProductRepository orderProductRepository;
-    ProductsFeignClient productsFeignClient;
+    OrderReparacionRepository orderReparacionRepository;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository,
-                        OrderProductRepository orderProductRepository,
-                        ProductsFeignClient productsFeignClient) {
-        this.orderRepository = orderRepository;
-        this.orderProductRepository = orderProductRepository;
-        this.productsFeignClient = productsFeignClient;
+    public ArrayList<OrderEntity> getOrden(){ return (ArrayList<ORderEntity>) costoRepository.findAll(); }
+
+    public CostoEntity saveOrden(OrderEntity order){ return costoRepository.save(order); }
+
+    public OrderEntity getOrdenById(Long id){
+        return costoRepository.findById(id).get();
     }
 
+    public OrderEntity updateOrder(OrderEntity order) { return orderRepository.save(order);}
+    """
     @Transactional
     public void createOrder(CreateOrderRequest createOrderRequest) {
         DecreaseStockRequest decreaseStockRequest = new DecreaseStockRequest();
@@ -55,5 +54,6 @@ public class OrderService {
 
         this.orderProductRepository.saveAll(orderProducts);
     }
+    """
 
 }

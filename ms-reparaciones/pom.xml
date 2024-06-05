@@ -12,7 +12,7 @@
 	<artifactId>ms-reparaciones</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ms-reparaciones</name>
-	<description>Microservicio Lista de Reparaciones</description>
+	<description>Microservicio de Reparaciones</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

@@ -11,8 +11,8 @@
 	<groupId>com.mingeso</groupId>
 	<artifactId>ms-shipping</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ms-shipping</name>
-	<description>Microservicio productos</description>
+	<name>ms-vehiculo</name>
+	<description>Microservicio de Vehiculos</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

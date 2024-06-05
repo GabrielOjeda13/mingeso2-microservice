@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-@Service
 public class ReparacionService {
     @Autowired
     ReparacionRepository reparacionRepository;

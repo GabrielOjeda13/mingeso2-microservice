@@ -10,44 +10,26 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-@Service
-public class ReparacionService {
+public class VehiculoService {
+
     @Autowired
-    ReparacionRepository reparacionRepository;
+    VehiculoRepository vehiculoRepository;
 
-    public ArrayList<ReparacionEntity> getReparaciones(){ return (ArrayList<ReparacionEntity>) reparacionRepository.findAll(); }
-
-    public ArrayList<ReparacionEntity> getReparacionesPatente(String patente){ return (ArrayList<ReparacionEntity>) reparacionRepository.findByreparacionPatente(patente); }
-
-    public ReparacionEntity saveReparacion(ReparacionEntity reparacion){ return reparacionRepository.save(reparacion); }
-
-    public ReparacionEntity getReparacionById(Long id){
-        return reparacionRepository.findById(id).get();
+    public ArrayList<VehiculoEntity> getVehiculos(){
+        return (ArrayList<VehiculoEntity>) vehiculoRepository.findAll();
     }
 
-    public ReparacionEntity updateReparacion(ReparacionEntity reparacion) { return reparacionRepository.save(reparacion);}
-
-    public List<Object[]> obtenerReporteReparaciones() {
-        return reparacionRepository.obtenerReporteReparaciones();
+    public VehiculoEntity saveVehiculo(VehiculoEntity vehiculo){
+        return vehiculoRepository.save(vehiculo);
     }
 
-    public List<Object[]> obtenerReporteReparacionesTipoMotor() {
-        return reparacionRepository.obtenerReporteReparacionesTipoMotor();
+    public VehiculoEntity getVehiculoById(Long id){
+        return vehiculoRepository.findById(id).get();
     }
-    """
-    @Transactional
-    public void decreaseStock(DecreaseStockRequest decreaseStockRequest) {
 
-        ArrayList<Product> productsToUpdate = new ArrayList<>();
-        for(RequestProduct requestProduct : decreaseStockRequest.getProducts()) {
-            Optional<Product> optionalProduct = this.productRepository.findById(requestProduct.getId());
-            if(optionalProduct.isEmpty()) throw new BadRequestException("un producto no existe...");
-            Product product = optionalProduct.get();
-
-            product.setStock(product.getStock() - requestProduct.getQuantity());
-            productsToUpdate.add(product);
-        }
-        this.productRepository.saveAll(productsToUpdate);
+    public VehiculoEntity getVehiculoByPatente(String patente){
+        return vehiculoRepository.findByPatenteNativeQuery(patente);
     }
-    """
+
+    public VehiculoEntity updateVehiculo(VehiculoEntity vehiculo) { return vehiculoRepository.save(vehiculo);}
 }

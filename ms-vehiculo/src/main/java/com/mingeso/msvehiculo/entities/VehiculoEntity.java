@@ -6,26 +6,30 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "reparacion")
+@Table(name = "vehiculo")
 @Getter
 @Setter
 @NoArgsConstructor
-public class ReparacionEntity {
+public class VehiculoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column(name = "name")
+    @Column(name = "patente")
         String patente;
-    @Column(name = "costo_reparacion")
-        Integer costo_reparacion;
-    @Column(name = "tipo_reparacion")
-        String tipo_reparacion;
-    @Column(name = "fecha_inicio")
-        Date fecha_inicio;
-    @Column(name = "fecha_termino")
-        Date fecha_termino;
-    @Column(name = "id_costo")
+    @Column(name = "marca")
+        String marca;
+    @Column(name = "modelo")
+        String modelo;
+    @Column(name = "tipo_vehiculo")
+        String tipo_vehiculo;
+    @Column(name = "tipo_motor")
+        String tipo_motor;
+    @Column(name = "num_asientos")
         Integer id_costo;
+    @Column(name = "año")
+        Integer año;
+    @Column(name = "km")
+        Integer km;
 
 }

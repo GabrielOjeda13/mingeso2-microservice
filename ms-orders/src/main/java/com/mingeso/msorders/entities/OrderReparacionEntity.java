@@ -5,10 +5,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "order_product")
+@Table(name = "order_reparacion")
 @Setter
 @NoArgsConstructor
-public class OrderProduct {
+public class OrderReparacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
@@ -16,10 +16,7 @@ public class OrderProduct {
     @Column(name = "order_id")
     Integer orderId;
 
-    @Column(name = "product_id")
+    @Column(name = "reparacion_id")
     Integer productId;
-
-    @Column(name = "quantity")
-    Integer quantity;
 
 }

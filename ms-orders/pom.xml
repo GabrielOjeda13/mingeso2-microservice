@@ -12,7 +12,7 @@
 	<artifactId>ms-orders</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ms-orders</name>
-	<description>Microservicio productos</description>
+	<description>Microservicio Orden de Reparaciones</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

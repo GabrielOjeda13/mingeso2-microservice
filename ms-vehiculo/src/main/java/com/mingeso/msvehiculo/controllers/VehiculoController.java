@@ -9,40 +9,39 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/api/v1/reparacion")
-public class ReparacionController {
+@RequestMapping("/api/v1/vehiculo")
+public class VehiculoController {
 
     @Autowired
-    ReparacionService reparacionService;
+    VehiculoService vehiculoService;
 
     @GetMapping("/")
-    public ResponseEntity<List<ReparacionEntity>> listReparacion() {
-        List<ReparacionEntity> reparaciones = reparacionService.getReparaciones();
-        return ResponseEntity.ok(reparaciones);
-    }
-
-    @GetMapping("/patente/{patente}")
-    public ResponseEntity<List<ReparacionEntity>> listReparacionByPatente(@PathVariable String patente) {
-        List<ReparacionEntity> reparacionesPatente = reparacionService.getReparacionesPatente(patente);
-        return ResponseEntity.ok(reparacionesPatente);
+    public ResponseEntity<List<VehiculoEntity>> listvehiculos() {
+        List<VehiculoEntity> vehiculos = vehiculoService.getVehiculos();
+        return ResponseEntity.ok(vehiculos);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ReparacionEntity> getReparacionById(@PathVariable Long id) {
-        ReparacionEntity reparacion = reparacionService.getReparacionById(id);
-        return ResponseEntity.ok(reparacion);
+    public ResponseEntity<VehiculoEntity> getVehiculoById(@PathVariable Long id) {
+        VehiculoEntity vehiculo = vehiculoService.getVehiculoById(id);
+        return ResponseEntity.ok(vehiculo);
+    }
+
+    @GetMapping("/patente/{patente}")
+    public ResponseEntity<VehiculoEntity> getVehiculoByPatente(@PathVariable String patente) {
+        VehiculoEntity vehiculoPatente = vehiculoService.getVehiculoByPatente(patente);
+        return ResponseEntity.ok(vehiculoPatente);
     }
 
     @PostMapping("/")
-    public ResponseEntity<ReparacionEntity> saveReparacion(@RequestBody ReparacionEntity reparacion) {
-        ReparacionEntity reparacionNew = reparacionService.saveReparacion(reparacion);
-        return ResponseEntity.ok(reparacionNew);
+    public ResponseEntity<VehiculoEntity> saveVehiculo(@RequestBody VehiculoEntity vehiculo) {
+        VehiculoEntity vehiculoNew = vehiculoService.saveVehiculo(vehiculo);
+        return ResponseEntity.ok(vehiculoNew);
     }
 
     @PutMapping("/")
-    public ResponseEntity<ReparacionEntity> updateReparacion(@RequestBody ReparacionEntity reparacion) {
-        ReparacionEntity reparacionUpdate = reparacionService.updateReparacion(reparacion);
-        return ResponseEntity.ok(reparacionUpdate);
+    public ResponseEntity<VehiculoEntity> updateVehiculo(@RequestBody VehiculoEntity vehiculo) {
+        VehiculoEntity vehiculoUpdate = vehiculoService.updateVehiculo(vehiculo);
+        return ResponseEntity.ok(vehiculoUpdate);
     }
-
 }

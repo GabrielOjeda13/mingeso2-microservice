@@ -15,7 +15,7 @@ public class ReparacionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column(name = "name")
+    @Column(name = "patente")
         String patente;
     @Column(name = "costo_reparacion")
         Integer costo_reparacion;
