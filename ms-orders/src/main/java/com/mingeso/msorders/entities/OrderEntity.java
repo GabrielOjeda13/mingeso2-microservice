@@ -13,25 +13,17 @@ import lombok.Setter;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     Integer id;
 
-    @Column(name = "patente")
-        String patente;
-    @Column(name = "fecha_ingreso")
-        Date fecha_ingreso;
-    @Column(name = "fecha_salida")
-        Date fecha_salida;
-    @Column(name = "fecha_cliente")
-        Date fecha_cliente;
-    @Column(name = "total_reparaciones")
-        Integer total_reparaciones;
-    @Column(name = "total_descuentos")
-        Integer total_descuentos;
-    @Column(name = "total_recargos")
-        Integer total_recargos;
-    @Column(name = "total_iva")
-        Integer total_iva;
-    @Column(name = "costo_total")
-        Integer costo_total;
+    private String patente;
+    private Date fecha_ingreso;
+    private Date fecha_salida;
+    private Date fecha_cliente;
+    private Integer total_reparaciones;
+    private Integer total_descuentos;
+    private Integer total_recargos;
+    private Integer total_iva;
+    private Integer costo_total;
 
 }

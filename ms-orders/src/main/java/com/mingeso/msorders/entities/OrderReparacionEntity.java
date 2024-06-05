@@ -11,12 +11,11 @@ import lombok.Setter;
 public class OrderReparacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     Integer id;
 
-    @Column(name = "order_id")
-    Integer orderId;
+    private Integer orderId;
 
-    @Column(name = "reparacion_id")
-    Integer productId;
+    private Integer productId;
 
 }

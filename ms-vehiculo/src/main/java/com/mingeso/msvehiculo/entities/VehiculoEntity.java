@@ -13,23 +13,16 @@ import lombok.Setter;
 public class VehiculoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     Integer id;
 
-    @Column(name = "patente")
-        String patente;
-    @Column(name = "marca")
-        String marca;
-    @Column(name = "modelo")
-        String modelo;
-    @Column(name = "tipo_vehiculo")
-        String tipo_vehiculo;
-    @Column(name = "tipo_motor")
-        String tipo_motor;
-    @Column(name = "num_asientos")
-        Integer id_costo;
-    @Column(name = "año")
-        Integer año;
-    @Column(name = "km")
-        Integer km;
+    private String patente;
+    private String marca;
+    private String modelo;
+    private String tipo_vehiculo;
+    private String tipo_motor;
+    private Integer id_costo;
+    private Integer año;
+    private Integer km;
 
 }

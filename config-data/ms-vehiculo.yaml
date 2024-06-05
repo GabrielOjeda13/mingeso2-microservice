@@ -1,13 +1,13 @@
 server:
-  port: 8090
+  port: 8092
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/order-db
+    url: jdbc:postgresql://localhost:5434/vehiculo-db
     username: postgres
     password: 1302
 eureka:
   instance:
-    hostname: localhost
+    preferIpAddress: true
   client:
     fetch-registry: true
     register-with-eureka: true

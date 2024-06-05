@@ -13,19 +13,19 @@ import lombok.Setter;
 public class ReparacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     Integer id;
 
-    @Column(name = "patente")
-        String patente;
-    @Column(name = "costo_reparacion")
-        Integer costo_reparacion;
-    @Column(name = "tipo_reparacion")
-        String tipo_reparacion;
-    @Column(name = "fecha_inicio")
-        Date fecha_inicio;
-    @Column(name = "fecha_termino")
-        Date fecha_termino;
-    @Column(name = "id_costo")
-        Integer id_costo;
+    private String patente;
+
+    private Integer costo_reparacion;
+
+    private String tipo_reparacion;
+
+    private Date fecha_inicio;
+
+    private Date fecha_termino;
+
+    private Integer id_costo;
 
 }

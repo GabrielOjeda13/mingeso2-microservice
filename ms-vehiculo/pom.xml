@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mingeso</groupId>
-	<artifactId>ms-shipping</artifactId>
+	<artifactId>ms-vehiculo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ms-vehiculo</name>
 	<description>Microservicio de Vehiculos</description>
@@ -20,6 +20,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>4.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
