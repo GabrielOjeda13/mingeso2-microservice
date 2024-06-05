@@ -8,7 +8,7 @@ import lombok.Setter;
 @Table(name = "order_reparacion")
 @Setter
 @NoArgsConstructor
-public class OrderReparacion {
+public class OrderReparacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)

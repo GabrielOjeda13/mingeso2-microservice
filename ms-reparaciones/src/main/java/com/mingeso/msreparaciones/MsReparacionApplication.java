@@ -3,12 +3,10 @@ package com.mingeso.msreparaciones;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class MsReparacionesApplication {
-
+public class MsReparacionApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(MsReparacionesApplication.class, args);
+		SpringApplication.run(MsReparacionApplication.class, args);
 	}
 
 }

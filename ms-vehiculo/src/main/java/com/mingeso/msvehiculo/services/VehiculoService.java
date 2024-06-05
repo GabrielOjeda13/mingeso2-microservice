@@ -2,9 +2,9 @@ package com.mingeso.msvehiculo.services;
 
 import com.mingeso.msvehiculo.entities.VehiculoEntity;
 import com.mingeso.msvehiculo.repositories.VehiculoRepository;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.BadRequestException;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Optional;

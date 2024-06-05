@@ -1,12 +1,14 @@
-package com.mingeso.msreparacion.controllers;
+package com.mingeso.msreparaciones.controllers;
 
-import com.mingeso.msreparacion.entities.ReparacionEntity;
-import com.mingeso.msreparacion.services.ReparacionService;
+import com.mingeso.msreparaciones.entities.ReparacionEntity;
+import com.mingeso.msreparaciones.services.ReparacionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/reparacion")

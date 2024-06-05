@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import java.util.List;
 
 @Repository
 public interface ReparacionRepository extends JpaRepository<ReparacionEntity, Long>{
@@ -21,15 +22,4 @@ public interface ReparacionRepository extends JpaRepository<ReparacionEntity, Lo
             "ORDER BY MontoTotal DESC")
     List<Object[]> obtenerReporteReparaciones();
 
-    @Query(value = "SELECT r.tipo_reparacion AS tipoReparacion, " +
-            "SUM(CASE WHEN v.tipo_motor = 'Gasolina' THEN 1 ELSE 0 END) AS numVehiculosGasolina, " +
-            "SUM(CASE WHEN v.tipo_motor = 'Diesel' THEN 1 ELSE 0 END) AS numVehiculosDiesel, " +
-            "SUM(CASE WHEN v.tipo_motor = 'Hibrido' THEN 1 ELSE 0 END) AS numVehiculosHibrido, " +
-            "SUM(CASE WHEN v.tipo_motor = 'Electrico' THEN 1 ELSE 0 END) AS numVehiculosElectrico, " +
-            "SUM(r.costo_reparacion) AS costoTotal " +
-            "FROM ReparacionEntity r " +
-            "JOIN VehiculoEntity v ON r.patente = v.patente " +
-            "GROUP BY r.tipo_reparacion " +
-            "ORDER BY costoTotal DESC")
-    List<Object[]> obtenerReporteReparacionesTipoMotor();
 }
