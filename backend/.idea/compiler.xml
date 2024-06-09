@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+        <module name="ms-reparaciones" />
+        <module name="gateway-server" />
+        <module name="ms-reporte" />
+        <module name="eureka-server" />
+        <module name="ms-orders" />
+        <module name="ms-vehiculo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="config-server" target="17" />
+      <module name="eureka-server" target="17" />
+      <module name="gateway-server" target="17" />
+      <module name="ms-orders" target="17" />
+      <module name="ms-reparaciones" target="17" />
+      <module name="ms-reporte" target="17" />
+      <module name="ms-vehiculo" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config-server" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="gateway-server" options="-parameters" />
+      <module name="ms-orders" options="-parameters" />
+      <module name="ms-reparaciones" options="-parameters" />
+      <module name="ms-reporte" options="-parameters" />
+      <module name="ms-vehiculo" options="-parameters" />
+    </option>
+  </component>
+</project>

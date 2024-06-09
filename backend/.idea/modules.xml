@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway-server/gateway-server.iml" filepath="$PROJECT_DIR$/gateway-server/gateway-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-orders/ms-orders.iml" filepath="$PROJECT_DIR$/ms-orders/ms-orders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-reparaciones/ms-reparaciones.iml" filepath="$PROJECT_DIR$/ms-reparaciones/ms-reparaciones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-reporte/ms-reporte.iml" filepath="$PROJECT_DIR$/ms-reporte/ms-reporte.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-vehiculo/ms-vehiculo.iml" filepath="$PROJECT_DIR$/ms-vehiculo/ms-vehiculo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/proyecto2-microservicios.iml" filepath="$PROJECT_DIR$/.idea/proyecto2-microservicios.iml" />
+    </modules>
+  </component>
+</project>

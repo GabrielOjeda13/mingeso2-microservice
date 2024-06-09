@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-orders/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-orders/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-reparaciones/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-reparaciones/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-reporte/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-reporte/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-vehiculo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ms-vehiculo/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
