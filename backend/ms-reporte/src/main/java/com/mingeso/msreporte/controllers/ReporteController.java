@@ -1,6 +1,6 @@
 package com.mingeso.msreporte.controllers;
 
-import com.mingeso.msreporte.services.reporteService;
+import com.mingeso.msreporte.services.ReporteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
