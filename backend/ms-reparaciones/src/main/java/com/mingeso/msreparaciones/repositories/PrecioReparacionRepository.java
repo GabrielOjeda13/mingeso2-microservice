@@ -12,7 +12,7 @@ public interface PrecioReparacionRepository extends JpaRepository<PrecioReparaci
     @Query(value = "SELECT * FROM precio_reparacion WHERE precio.number = :number", nativeQuery = true)
     List<PrecioReparacionEntity> findByPrecio(@Param("number") int number);
 
-    @Query(value = "SELECT * FROM precio_reparacion WHERE precio.tipo_reparacion = :tipo_reparacion", nativeQuery = true)
+    @Query(value = "SELECT * FROM precio_reparacion WHERE tipo_reparacion = :tipo_reparacion", nativeQuery = true)
     PrecioReparacionEntity findByTipo(@Param("tipo_reparacion") String tipo_reparacion);
 
 }

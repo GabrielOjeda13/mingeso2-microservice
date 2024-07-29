@@ -21,4 +21,10 @@ public class OrderController {
         return ResponseEntity.ok(orders);
     }
 
+    @PostMapping("/")
+    public ResponseEntity<OrderEntity> saveOrden(@RequestBody OrderEntity order) {
+        OrderEntity orderNew = orderService.saveOrden(order);
+        return ResponseEntity.ok(orderNew);
+    }
+
 }

@@ -18,7 +18,7 @@ const AddReparacion = ({show, handLeClose}) => {
   const [fecha_inicio, setFechaInicio] = useState("");
   const [fecha_termino, setFechaTermino] = useState("");
   const [costoReparacionTipo, setCostoReparacionTipo] = useState("");
-  const [vehiculoPatente, setVehiculoPatente] = useState("");;
+  const [vehiculoPatente, setVehiculoPatente] = useState("");
   const { id } = useParams();
   const navigate = useNavigate();
   
@@ -66,6 +66,7 @@ const AddReparacion = ({show, handLeClose}) => {
     } else if (motor === "Eléctrico") {
       costo_reparacion = costoReparacionTipo.electrico;
     }  
+    console.log(costo_reparacion);
 
     const reparacion = { patente, tipo_reparacion, fecha_inicio, fecha_termino, costo_reparacion, id };
       //Crear nueva Reparacion
