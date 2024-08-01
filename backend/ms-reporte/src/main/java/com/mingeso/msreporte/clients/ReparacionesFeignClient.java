@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @FeignClient(value = "ms-reparaciones",
-        path = "/reparaciones",
+        path = "/api/v1/reparaciones",
 configuration = {FeignClientConfig.class})
 
 public interface ReparacionesFeignClient {
