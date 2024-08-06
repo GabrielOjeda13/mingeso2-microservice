@@ -1,11 +1,11 @@
 import httpClient from "../http-common";
 
-const getReporte1 = () => {
-    return httpClient.get('/api/v1/reporte/reporte1?mes=7&año=2024');
+const getReporte1 = (mes, año) => {
+    return httpClient.get(`/api/v1/reporte/reporte1?mes=${mes}&año=${año}`);
 }
 
-const getReporte2 = data => {
-    return httpClient.get("/api/v1/reporte/2", data);
+const getReporte2 = (mes, año) => {
+    return httpClient.get(`/api/v1/reporte/reporte2?mes=${mes}&año=${año}`);
 }
 
 export default { getReporte1, getReporte2 };

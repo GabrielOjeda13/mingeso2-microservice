@@ -86,4 +86,57 @@ public class ReporteService {
 
         return resultado;
     }
+
+    public List<Map<String, Object>> obtenerReporteComparativo(int mes, int año) {
+        List<RequestReparacion> reparaciones = obtenerReparaciones();
+        List<RequestVehiculo> vehiculos = obtenerVehiculos();
+
+        List<RequestReparacion> reparacionesMesActual = filtrarReparacionesPorMes(reparaciones, mes, año);
+        List<RequestReparacion> reparacionesMesAnterior1 = filtrarReparacionesPorMes(reparaciones, mes - 1, año);
+        List<RequestReparacion> reparacionesMesAnterior2 = filtrarReparacionesPorMes(reparaciones, mes - 2, año);
+
+        Map<String, Object> reporteMesActual = generarReporte(reparacionesMesActual, vehiculos);
+        Map<String, Object> reporteMesAnterior1 = generarReporte(reparacionesMesAnterior1, vehiculos);
+        Map<String, Object> reporteMesAnterior2 = generarReporte(reparacionesMesAnterior2, vehiculos);
+
+        List<Map<String, Object>> resultado = new ArrayList<>();
+        resultado.add(reporteMesActual);
+        resultado.add(reporteMesAnterior1);
+        resultado.add(reporteMesAnterior2);
+
+        return resultado;
+    }
+
+    private List<RequestReparacion> filtrarReparacionesPorMes(List<RequestReparacion> reparaciones, int mes, int año) {
+        return reparaciones.stream()
+                .filter(reparacion -> {
+                    Date fechaInicio = reparacion.getFecha_inicio();
+                    if (fechaInicio == null) {
+                        // Puedes manejar los valores nulos aquí, por ejemplo, ignorando o registrando
+                        return false; // Ignorar reparaciones sin fecha de inicio
+                    }
+                    LocalDate fecha = fechaInicio.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    return fecha.getMonthValue() == mes && fecha.getYear() == año;
+                })
+                .collect(Collectors.toList());
+    }
+
+    private Map<String, Object> generarReporte(List<RequestReparacion> reparaciones, List<RequestVehiculo> vehiculos) {
+        Map<String, Integer> cantidadPorTipoReparacion = new HashMap<>();
+        Map<String, Integer> montoPorTipoReparacion = new HashMap<>();
+
+        for (RequestReparacion reparacion : reparaciones) {
+            String tipoReparacion = reparacion.getTipo_reparacion();
+            int costo = reparacion.getCosto_reparacion();
+
+            cantidadPorTipoReparacion.merge(tipoReparacion, 1, Integer::sum);
+            montoPorTipoReparacion.merge(tipoReparacion, costo, Integer::sum);
+        }
+
+        Map<String, Object> reporte = new HashMap<>();
+        reporte.put("cantidadPorTipoReparacion", cantidadPorTipoReparacion);
+        reporte.put("montoPorTipoReparacion", montoPorTipoReparacion);
+
+        return reporte;
+    }
 }

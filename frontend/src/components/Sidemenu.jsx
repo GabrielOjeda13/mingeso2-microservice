@@ -57,7 +57,7 @@ export default function Sidemenu({ open, toggleDrawer }) {
           <ListItemIcon>
             <CalculateIcon />
           </ListItemIcon>
-          <ListItemText primary="Calculo de Costos" />
+          <ListItemText primary="Registro de Ordenes" />
         </ListItemButton>
         
         <Divider />
@@ -66,14 +66,14 @@ export default function Sidemenu({ open, toggleDrawer }) {
           <ListItemIcon>
             <AnalyticsIcon />
           </ListItemIcon>
-          <ListItemText primary="Reporte R2" />
+          <ListItemText primary="Reporte R1" />
         </ListItemButton>
 
         <ListItemButton onClick={() => navigate("/reporter4/list")}>
           <ListItemIcon>
             <AnalyticsIcon />
           </ListItemIcon>
-          <ListItemText primary="Reporte R4" />
+          <ListItemText primary="Reporte R2" />
         </ListItemButton>
       </List>
 

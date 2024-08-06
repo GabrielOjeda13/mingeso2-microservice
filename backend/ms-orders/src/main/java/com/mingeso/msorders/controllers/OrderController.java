@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/orders")
-@CrossOrigin("*")
 public class OrderController {
     @Autowired
     OrderService orderService;

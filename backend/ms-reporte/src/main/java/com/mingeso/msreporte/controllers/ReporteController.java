@@ -37,6 +37,14 @@ public class ReporteController {
         return ResponseEntity.ok(reporte);
     }
 
+    @GetMapping("/reporte2")
+    public ResponseEntity<List<Map<String, Object>>> obtenerReporteComparativo(
+            @RequestParam int mes,
+            @RequestParam int año) {
+        List<Map<String, Object>> reporte = reporteService.obtenerReporteComparativo(mes, año);
+        return ResponseEntity.ok(reporte);
+    }
+
     @GetMapping("/")
     public String holaMundo() {
         return "Hola Mundo";

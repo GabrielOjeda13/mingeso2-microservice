@@ -1,34 +1,84 @@
 import React, { useEffect, useState } from "react";
-import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
+import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, MenuItem, Select, InputLabel, FormControl, TextField, Box } from "@mui/material";
 import reporteService from "../services/reporte.service";
 
 const ReporteList = () => {
   const [reporte, setReporte] = useState([]);
+  const [mesSeleccionado, setMesSeleccionado] = useState("ABRIL");
+  const [añoSeleccionado, setAñoSeleccionado] = useState(2024); // Estado para el año
+  const [meses, setMeses] = useState(["ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"]);
 
-  const init = () => {
+  // Mapeo del nombre del mes al número
+  const mesNumero = {
+    "ENERO": 1,
+    "FEBRERO": 2,
+    "MARZO": 3,
+    "ABRIL": 4,
+    "MAYO": 5,
+    "JUNIO": 6,
+    "JULIO": 7,
+    "AGOSTO": 8,
+    "SEPTIEMBRE": 9,
+    "OCTUBRE": 10,
+    "NOVIEMBRE": 11,
+    "DICIEMBRE": 12
+  };
+
+  const obtenerDatos = (mes, año) => {
+    const numeroMes = mesNumero[mes];
     reporteService
-      .getReporte1()
+      .getReporte1(numeroMes, año)
       .then((response) => {
-        console.log("Mostrando Reporte R1.", response.data);
+        console.log("Mostrando Reporte 1.", response.data);
         setReporte(response.data);
       })
       .catch((error) => {
         console.log(
-          "Se ha producido un error al intentar mostrar el reporte R1.",
+          "Se ha producido un error al intentar mostrar el reporte 1.",
           error
         );
       });
   };
 
   useEffect(() => {
-    init();
-  }, []);
+    obtenerDatos(mesSeleccionado, añoSeleccionado);
+  }, [mesSeleccionado, añoSeleccionado]);
 
   return (
     <>
       <Typography variant="h4" gutterBottom margin={"20px"}>
         Reporte N°1 (HU5)
       </Typography>
+      <Box display="flex" justifyContent="center" mb={2}>
+        <Box display="flex" gap={2} alignItems="center">
+        <FormControl sx={{ minWidth: 80 }} margin="normal">
+            <TextField
+              label="Año"
+              type="number"
+              variant="standard"
+              value={añoSeleccionado}
+              onChange={(e) => setAñoSeleccionado(Number(e.target.value))}
+              InputLabelProps={{ shrink: true }}
+            />
+          </FormControl>
+          <FormControl sx={{ minWidth: 250 }} margin="normal">
+            <InputLabel id="mes-select-label">Selecciona un Mes</InputLabel>
+            <Select
+              labelId="mes-select-label"
+              variant="standard"
+              value={mesSeleccionado}
+              onChange={(e) => setMesSeleccionado(e.target.value)}
+              label="Selecciona un Mes"
+            >
+              {meses.map((mes) => (
+                <MenuItem key={mes} value={mes}>
+                  {mes}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Box>
+      </Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>

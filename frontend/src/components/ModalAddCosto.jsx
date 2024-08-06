@@ -66,20 +66,42 @@ const AddCosto = ({show, handLeClose}) => {
 
   const saveCosto = (e) => {
     e.preventDefault();
-    const costo = { patente, fecha_ingreso, fecha_reparacion, fecha_salida, id };
-        //Crear nuevo Registro de Costo
-        costoService
-          .create(costo)
-          .then((response) => {
-            console.log("El registro de costo ha sido añadida.", response.data);
-            navigate("/costo/list");
-          })
-          .catch((error) => {
-            console.log(
-              "Ha ocurrido un error al intentar registrar el costo.",
-              error
-            );
-          });
+  
+    // Cálculos adicionales
+    const totalReparaciones = calcularCostoTotalReparaciones();
+    const totalDescuentos = totalReparaciones * descuentoReparaciones + totalReparaciones * descuentoIngreso;
+    const totalRecargos = totalReparaciones * recargoKm + totalReparaciones * recargoAño;
+    const subTotal = totalReparaciones - totalDescuentos + totalRecargos;
+    const montoIva = subTotal * 0.19; // Suponiendo un IVA del 19%
+    const costoTotal = calcularCostoTotal();
+  
+    // Creación del objeto costo con los valores solicitados
+    const costo = {
+      patente,
+      fecha_ingreso,
+      fecha_reparacion,
+      fecha_cliente: fecha_salida, // Asumiendo que fecha_cliente se refiere a fecha_salida
+      total_reparaciones: totalReparaciones,
+      total_descuentos: totalDescuentos,
+      total_recargos: totalRecargos,
+      sub_total: subTotal,
+      total_iva: montoIva,
+      costo_total: costoTotal,
+    };
+  
+    // Crear nuevo Registro de Costo
+    costoService
+      .create(costo)
+      .then((response) => {
+        console.log("El registro de costo ha sido añadido.", response.data);
+        navigate("/costo/list");
+      })
+      .catch((error) => {
+        console.log(
+          "Ha ocurrido un error al intentar registrar el costo.",
+          error
+        );
+      });
   };
 
   const calcularNumeroReparacionesUltimos12Meses = (reparaciones) => {
