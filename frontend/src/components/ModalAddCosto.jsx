@@ -306,7 +306,7 @@ const AddCosto = ({show, handLeClose}) => {
                 <FormControl fullWidth>
                 <TextField
                     id="fechaIngreso"
-                    label="Fecha de Ingreso"
+                    label="Fecha de Ingreso al Taller"
                     type="datetime-local"
                     value={fecha_ingreso}
                     variant="standard"
@@ -322,7 +322,7 @@ const AddCosto = ({show, handLeClose}) => {
                 <FormControl fullWidth>
                 <TextField
                     id="fechaReparacion"
-                    label="Fecha de Reparación"
+                    label="Fecha de Salida del Taller"
                     type="datetime-local"
                     value={fecha_reparacion}
                     variant="standard"
@@ -337,7 +337,7 @@ const AddCosto = ({show, handLeClose}) => {
                 <FormControl fullWidth>
                 <TextField
                     id="fechaSalida"
-                    label="Fecha de Salida"
+                    label="Fecha de Retiro del Cliente"
                     type="datetime-local"
                     value={fecha_salida}
                     variant="standard"

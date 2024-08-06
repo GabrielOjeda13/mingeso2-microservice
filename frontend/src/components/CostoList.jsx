@@ -87,24 +87,60 @@ const CostoList = () => {
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell align="left" sx={{ fontWeight: "bold" }}>
-              Patente
-            </TableCell>
-            <TableCell align="left" sx={{ fontWeight: "bold" }}>
-              Fecha Ingreso
-            </TableCell>
-            <TableCell align="left" sx={{ fontWeight: "bold" }}>
-              Fecha Reparación
-            </TableCell>
-            <TableCell align="left" sx={{ fontWeight: "bold" }}>
-              Fecha Salida
-            </TableCell>
-            <TableCell align="right" sx={{ fontWeight: "bold" }}>
-              Costo Total
-            </TableCell>
-            <TableCell align="left" sx={{ fontWeight: "bold" }}>
-              Operaciones
-            </TableCell>
+          <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Patente Vehículo
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Marca Vehículo
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Modelo Vehículo
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Tipo Vehículo
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Año Fabricación
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Tipo Motor
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Fecha Ingreso Taller
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Hora Ingreso Taller
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Monto Total Reparaciones
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Monto Recargos
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Monto Dctos
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                SUB Total
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Monto IVA
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Costo Total
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Fecha Salida taller
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Hora Salida Taller
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Fecha Retiro Cliente
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Hora Retiro Cliente
+              </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

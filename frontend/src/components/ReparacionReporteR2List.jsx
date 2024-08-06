@@ -1,31 +1,20 @@
-import { useEffect, useState } from "react";
-import { format } from "date-fns";
-import { Link, useNavigate } from "react-router-dom";
-import reparacionService from "../services/reparacion.service";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-import Description from "@mui/icons-material/Description";
-import Typography from "@mui/material/Typography";
+import React, { useEffect, useState } from "react";
+import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material";
+import reporteService from "../services/reporte.service";
 
 const ReporteList = () => {
   const [reporte, setReporte] = useState([]);
 
   const init = () => {
-    reparacionService
-      .getReporte()
+    reporteService
+      .getReporte1()
       .then((response) => {
-        console.log("Mostrando Reporte R2.", response.data);
+        console.log("Mostrando Reporte R1.", response.data);
         setReporte(response.data);
       })
       .catch((error) => {
         console.log(
-          "Se ha producido un error al intentar mostrar el reporte R2.",
+          "Se ha producido un error al intentar mostrar el reporte R1.",
           error
         );
       });
@@ -38,34 +27,75 @@ const ReporteList = () => {
   return (
     <>
       <Typography variant="h4" gutterBottom margin={"20px"}>
-        Reparaciones Vs N° Vehiculos (R2)
+        Reporte N°1 (HU5)
       </Typography>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell align="left" sx={{ fontWeight: "bold" }}>
-                Tipo de Reparación
+                Lista de reparaciones
               </TableCell>
               <TableCell align="left" sx={{ fontWeight: "bold" }}>
-                N° de Vehículos
+                Sedan
               </TableCell>
               <TableCell align="left" sx={{ fontWeight: "bold" }}>
-                Costo Total
+                Hatchback
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                SUV
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Pickup
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                Furgoneta
+              </TableCell>
+              <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                TOTAL
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {reporte.map((fila) => (
-              <TableRow
-                key={fila[0]} // Utilizamos la primera columna como clave única, que corresponde al tipo de reparación
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell align="left">{fila[0]}</TableCell>
-                <TableCell align="left">{fila[1]}</TableCell>
-                <TableCell align="left">{fila[2]}</TableCell>
-              </TableRow>
-            ))}
+            {reporte.map((fila) => {
+              const { tipoReparacion, tipoVehiculoConteo, totalMonto } = fila;
+              const totalConteo = Object.values(tipoVehiculoConteo).reduce((sum, val) => sum + val, 0);
+
+              // Cálculo de totales para esta fila
+              const totalMontoPorTipo = {
+                Sedan: (tipoVehiculoConteo.Sedan || 0) * totalMonto,
+                Hatchback: (tipoVehiculoConteo.Hatchback || 0) * totalMonto,
+                SUV: (tipoVehiculoConteo.SUV || 0) * totalMonto,
+                Pickup: (tipoVehiculoConteo.Pickup || 0) * totalMonto,
+                Furgoneta: (tipoVehiculoConteo.Furgoneta || 0) * totalMonto,
+                Total: totalConteo * totalMonto
+              };
+
+              return (
+                <React.Fragment key={tipoReparacion}>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell align="left">{tipoReparacion}</TableCell>
+                    <TableCell align="left">{tipoVehiculoConteo.Sedan || 0}</TableCell>
+                    <TableCell align="left">{tipoVehiculoConteo.Hatchback || 0}</TableCell>
+                    <TableCell align="left">{tipoVehiculoConteo.SUV || 0}</TableCell>
+                    <TableCell align="left">{tipoVehiculoConteo.Pickup || 0}</TableCell>
+                    <TableCell align="left">{tipoVehiculoConteo.Furgoneta || 0}</TableCell>
+                    <TableCell align="left">{totalConteo}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="left" />
+                    <TableCell align="left">{totalMontoPorTipo.Sedan}</TableCell>
+                    <TableCell align="left">{totalMontoPorTipo.Hatchback}</TableCell>
+                    <TableCell align="left">{totalMontoPorTipo.SUV}</TableCell>
+                    <TableCell align="left">{totalMontoPorTipo.Pickup}</TableCell>
+                    <TableCell align="left">{totalMontoPorTipo.Furgoneta}</TableCell>
+                    <TableCell align="left">{totalMontoPorTipo.Total}</TableCell>
+                  </TableRow>
+                </React.Fragment>
+              );
+            })}
           </TableBody>
         </Table>
       </TableContainer>

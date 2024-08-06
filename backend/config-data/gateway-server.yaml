@@ -24,7 +24,7 @@ spring:
         - id: ms-orders
           uri: lb://ms-orders:8090
           predicates:
-            - Path=/api/v1/order/**
+            - Path=/api/v1/orders/**
         - id: ms-reparaciones
           uri: lb://ms-reparaciones:8091
           predicates:
